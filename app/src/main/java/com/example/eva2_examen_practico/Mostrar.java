@@ -24,13 +24,19 @@ public class Mostrar extends AppCompatActivity implements AdapterView.OnItemClic
         listaRest = findViewById(R.id.listaRest);
         lista = (ArrayList<Restaurant>) getIntent().getExtras().getSerializable("lista");
         listaRest.setAdapter(new AdapterRestaurant(this, R.layout.activity_layout_mostrar, lista));
-        //listaRest.setOnItemClickListener(this);
+        listaRest.setOnItemClickListener(this);
     }
 
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         //lista = (ArrayList<Restaurant>) getIntent().getSerializableExtra("lista");
+
+        Intent intent = new Intent(this,Evaluacion.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("restaurante",lista);
+        intent.putExtras(bundle);
+
         Toast.makeText(this, lista.get(i).getNombre(),Toast.LENGTH_SHORT).show();
         Log.wtf("Restaurant", ""+lista.get(i).getNombre());
     }
