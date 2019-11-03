@@ -27,6 +27,7 @@ public class AdapterRestaurant extends ArrayAdapter<Restaurant> {
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imgRestaurant;
         TextView txtVwNombre,  txtVwDescripcion, txtVwDireccionYTel;
+        ImageView estrella1,estrella2,estrella3;
 
         //ConvertView es el layout que representa una fila en la lista
         if (convertView == null){
@@ -39,13 +40,36 @@ public class AdapterRestaurant extends ArrayAdapter<Restaurant> {
         txtVwNombre = convertView.findViewById(R.id.textViewNombre);
         txtVwDescripcion = convertView.findViewById(R.id.textViewDescripcion);
         txtVwDireccionYTel = convertView.findViewById(R.id.textViewDireccion);
-
+        estrella1 = convertView.findViewById(R.id.estrella1);
+        estrella2 = convertView.findViewById(R.id.estrella2);
+        estrella3 = convertView.findViewById(R.id.estrella3);
 
         imgRestaurant.setImageResource(restaurants.get(position).getImagen());
         txtVwNombre.setText(restaurants.get(position).getNombre());
         txtVwDescripcion.setText(restaurants.get(position).getDescripcion());
         txtVwDireccionYTel.setText(restaurants.get(position).getDireccionYTel());
-
+        switch(restaurants.get(position).getEvaluacion()){
+            case 1:
+                estrella1.setBackgroundResource(R.drawable.estrella);
+                estrella2.setBackgroundResource(R.drawable.estrella2);
+                estrella3.setBackgroundResource(R.drawable.estrella2);
+                break;
+            case 2:
+                estrella1.setBackgroundResource(R.drawable.estrella);
+                estrella2.setBackgroundResource(R.drawable.estrella);
+                estrella3.setBackgroundResource(R.drawable.estrella2);
+                break;
+            case 3:
+                estrella1.setBackgroundResource(R.drawable.estrella);
+                estrella2.setBackgroundResource(R.drawable.estrella);
+                estrella3.setBackgroundResource(R.drawable.estrella);
+                break;
+            default:
+                estrella1.setBackgroundResource(R.drawable.estrella2);
+                estrella2.setBackgroundResource(R.drawable.estrella2);
+                estrella3.setBackgroundResource(R.drawable.estrella2);
+                break;
+        }
         return convertView;
     }
 }

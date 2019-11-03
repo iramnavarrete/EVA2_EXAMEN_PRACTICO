@@ -14,15 +14,15 @@
         android:layout_margin="10dp"
         android:text="DATOS"
         android:textColor="@android:color/black"
-        android:textSize="35dp" />
+        android:textSize="30dp" />
 
     <ImageView
         android:id="@+id/imageViewCapturar"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:layout_margin="10dp"
-        android:scaleType="fitXY"
         android:onClick="onClick"
+        android:scaleType="fitXY"
         app:srcCompat="@drawable/agregar" />
 
     <TextView
@@ -86,7 +86,7 @@
         android:id="@+id/button4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:onClick="onClickGuardar"
         android:text="GUARDAR" />
 </LinearLayout>

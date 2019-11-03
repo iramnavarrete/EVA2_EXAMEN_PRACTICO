@@ -8,18 +8,15 @@
 
     <ImageView
         android:id="@+id/imageViewMostrar"
-        android:layout_width="0dp"
-        android:layout_height="90dp"
-        android:layout_gravity="center_vertical"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_margin="10dp"
-        android:layout_weight="1"
         android:scaleType="fitXY"
         android:src="@drawable/f1" />
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
@@ -27,47 +24,57 @@
             android:id="@+id/textViewNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
             android:text="Nombre" />
 
         <TextView
             android:id="@+id/textViewDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="4dp"
             android:text="Descripcion" />
 
         <TextView
             android:id="@+id/textViewDireccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="4dp"
             android:text="Direccion" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/estrella" />
+            android:id="@+id/estrella1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/estrella2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/estrella2"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/estrella2" />
+            android:id="@+id/estrella2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/estrella2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/estrella3"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/estrella2" />
-    </LinearLayout>
+            android:id="@+id/estrella3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/estrella2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

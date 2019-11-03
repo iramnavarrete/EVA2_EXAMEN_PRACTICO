@@ -36,7 +36,7 @@ public class Capturar extends AppCompatActivity implements ImageView.OnClickList
     public void onClickGuardar(View v){
         //imagen
         Intent i = new Intent();
-        restaurante = new Restaurant(idNuevo, nombre.getText().toString(), descripcion.getText().toString(), direccion.getText().toString(), 1);
+        restaurante = new Restaurant(idNuevo, nombre.getText().toString(), descripcion.getText().toString(), direccion.getText().toString(), 2);
         Bundle bundle = new Bundle();
         bundle.putSerializable("restaurante",restaurante);
         i.putExtras(bundle);

@@ -1,7 +1,9 @@
 package com.example.eva2_examen_practico;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +19,7 @@ public class Mostrar extends AppCompatActivity implements AdapterView.OnItemClic
 
     ListView listaRest;
     ArrayList<Restaurant> lista;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +36,28 @@ public class Mostrar extends AppCompatActivity implements AdapterView.OnItemClic
         //lista = (ArrayList<Restaurant>) getIntent().getSerializableExtra("lista");
 
         Intent intent = new Intent(this,Evaluacion.class);
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("restaurante",lista);
-        intent.putExtras(bundle);
+        intent.putExtra("IMG",lista.get(i).getImagen());
+        intent.putExtra("NAME",lista.get(i).getNombre());
+        intent.putExtra("DESC",lista.get(i).getDescripcion());
+        intent.putExtra("TEL",lista.get(i).getDireccionYTel());
+        intent.putExtra("CAL",lista.get(i).getEvaluacion());
+        intent.putExtra("I",i);
+        startActivityForResult(intent,1);
 
-        Toast.makeText(this, lista.get(i).getNombre(),Toast.LENGTH_SHORT).show();
-        Log.wtf("Restaurant", ""+lista.get(i).getNombre());
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == Activity.RESULT_OK){ //resultCode es la seleccion que da el usuario
+            int cali = data.getIntExtra("NEW",0);
+            int position = data.getIntExtra("I",1);
+            lista.get(position).setEvaluacion(cali);
+            listaRest.setAdapter(new AdapterRestaurant(this, R.layout.activity_layout_mostrar, lista));
+
+        }else {
+
+        }
     }
 }
