@@ -41,7 +41,6 @@ public class Capturar extends AppCompatActivity implements ImageView.OnClickList
         bundle.putSerializable("restaurante",restaurante);
         i.putExtras(bundle);
         setResult(RESULT_OK,i);
-        Toast.makeText(this,""+ imagen.getId(),Toast.LENGTH_SHORT).show();
         finish();
     }
 
